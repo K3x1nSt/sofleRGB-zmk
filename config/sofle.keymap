@@ -109,35 +109,35 @@
         bank: bank {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp N0 &kp N1 &kp N4 &kp N0 &kp N7 &kp N8>;
+            bindings = <&kp N0 &kp N1 &kp N4 &kp N0 &kp N7 &kp N8 &kp ENTER>;
             label = "BANK";
         };
 
         hcbank: hcbank {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp N1 &kp N0 &kp N9 &kp N9 &kp N2 &kp N6>;
+            bindings = <&kp N1 &kp N0 &kp N9 &kp N9 &kp N2 &kp N6 &kp ENTER>;
             label = "HCBANK";
         };
 
         bank168888: bank168888 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp N1 &kp N6 &kp N8 &kp N8 &kp N8 &kp N8>;
+            bindings = <&kp N1 &kp N6 &kp N8 &kp N8 &kp N8 &kp N8 &kp ENTER>;
             label = "BANK168888";
         };
 
         ch168888: ch16888888 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp C &kp H &kp N1 &kp N6 &kp N8 &kp N8 &kp N8 &kp N8>;
+            bindings = <&kp C &kp H &kp N1 &kp N6 &kp N8 &kp N8 &kp N8 &kp N8 &kp ENTER>;
             label = "CH16888888";
         };
 
         bank900922: bank900922 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp N9 &kp N0 &kp N0 &kp N9 &kp N2 &kp N2>;
+            bindings = <&kp N9 &kp N0 &kp N0 &kp N9 &kp N2 &kp N2 &kp ENTER>;
             label = "BANK900922";
         };
     };
@@ -201,7 +201,7 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&BT_DEV_CHOICE>;
         };
 
-        layer_4 {
+        HOTKEY_LAYER {
             bindings = <
 &none         &ch      &lj          &hc          &xc        &gw                                       &none                    &none  &none  &none  &none  &none
 &none         &none    &none        &none        &none      &none                                     &none                    &none  &none  &none  &none  &none
@@ -211,6 +211,7 @@
             >;
 
             sensor-bindings = <&BG_LIGHT>;
+            label = "HOT KEY";
         };
     };
 };
