@@ -5,10 +5,8 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/rgb.h>
 
 #define BASE 0
 #define LOWER 1
@@ -29,6 +27,113 @@
         };
     };
 
+    macros {
+        ch: ch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp TAB &kp N0 &kp N0 &kp N8 &kp TAB &kp N0 &kp N0 &kp N0 &kp N0 &kp N1 &kp N1 &kp ENTER &kp ENTER>;
+            label = "CH";
+        };
+
+        lj: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp TAB &kp N0 &kp N0 &kp N8 &kp TAB &kp N0 &kp N0 &kp N0 &kp N0 &kp NUMBER_2 &kp NUMBER_2 &kp ENTER &kp ENTER>;
+            label = "NEW_MACRO";
+        };
+
+        hc: hc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp TAB &kp N0 &kp N0 &kp N8 &kp TAB &kp N0 &kp N0 &kp N0 &kp N0 &kp NUMBER_3 &kp NUMBER_3 &kp ENTER &kp ENTER>;
+            label = "HC";
+        };
+
+        xc: xc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp TAB &kp N0 &kp N0 &kp NUMBER_6 &kp TAB &kp N0 &kp N0 &kp N0 &kp N0 &kp NUMBER_4 &kp NUMBER_4 &kp ENTER &kp ENTER>;
+            label = "XC";
+        };
+
+        gw: gw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp TAB &kp N0 &kp N0 &kp NUMBER_6 &kp TAB &kp N0 &kp N0 &kp N0 &kp N0 &kp N5 &kp N5 &kp ENTER &kp ENTER>;
+            label = "GW";
+        };
+
+        chname: chname {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp C &kp H>;
+            label = "CHNAME";
+        };
+
+        ljname: ljname {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp L &kp J>;
+            label = "LJNAME";
+        };
+
+        hcname: hcname {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp H &kp C>;
+            label = "HCNAME";
+        };
+
+        xcname: xcname {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp X &kp C>;
+            label = "XCNAME";
+        };
+
+        gwname: gwname {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp G &kp W>;
+            label = "GWNAME";
+        };
+
+        bank: bank {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N0 &kp N1 &kp N4 &kp N0 &kp N7 &kp N8>;
+            label = "BANK";
+        };
+
+        hcbank: hcbank {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N1 &kp N0 &kp N9 &kp N9 &kp N2 &kp N6>;
+            label = "HCBANK";
+        };
+
+        bank168888: bank168888 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N1 &kp N6 &kp N8 &kp N8 &kp N8 &kp N8>;
+            label = "BANK168888";
+        };
+
+        ch168888: ch16888888 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp C &kp H &kp N1 &kp N6 &kp N8 &kp N8 &kp N8 &kp N8>;
+            label = "CH16888888";
+        };
+
+        bank900922: bank900922 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N9 &kp N0 &kp N0 &kp N9 &kp N2 &kp N2>;
+            label = "BANK900922";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -43,11 +148,11 @@
             //               | GUI | ALT  | CTRL | LOWER|  SPACE |  | ENTER | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp ESC    &kp N1  &kp N2    &kp N3    &kp N4       &kp N5                                          &kp N6       &kp N7     &kp N8     &kp N9   &kp N0    &kp BACKSPACE
-&kp TAB    &kp Q   &kp W     &kp E     &kp R        &kp T                                           &kp Y        &kp U      &kp I      &kp O    &kp P     &kp BSLH
-&kp LCTRL  &kp A   &kp S     &kp D     &kp F        &kp G                                           &kp H        &kp J      &kp K      &kp L    &kp SEMI  &kp ENTER
-&kp LSHFT  &kp Z   &kp X     &kp C     &kp V        &kp B        &kp C_MUTE       &kp C_PLAY_PAUSE  &kp N        &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp SQT
-                   &kp LGUI  &kp LALT  &kp K_CMENU  &lt 1 SPACE  &kp BACKSPACE    &kp SPACE         &lt 2 SPACE  &kp MINUS  &kp EQUAL  &kp DEL
+&kp ESC    &kp N1  &kp N2    &kp N3    &kp N4       &kp N5                                        &kp N6       &kp N7     &kp N8     &kp N9   &kp N0    &kp BACKSPACE
+&kp TAB    &kp Q   &kp W     &kp E     &kp R        &kp T                                         &kp Y        &kp U      &kp I      &kp O    &kp P     &kp BSLH
+&kp LCTRL  &kp A   &kp S     &kp D     &kp F        &kp G                                         &kp H        &kp J      &kp K      &kp L    &kp SEMI  &kp ENTER
+&kp LSHFT  &kp Z   &kp X     &kp C     &kp V        &kp B        &kp C_MUTE     &kp C_PLAY_PAUSE  &kp N        &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp SQT
+                   &kp LALT  &kp LGUI  &kp K_CMENU  &lt 1 SPACE  &lt 3 SPACE    &lt 3 SPACE       &lt 2 SPACE  &kp MINUS  &kp EQUAL  &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>, <&inc_dec_kp UP DOWN>;
@@ -65,11 +170,11 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&kp F12    &kp F1     &kp F2     &kp F3     &kp F4    &kp F5                           &kp F6     &kp F7    &kp F8    &kp F9     &kp F10   &kp F11
-&kp N0     &kp N1     &kp N2     &kp N3     &kp N4    &kp N5                           &kp N6     &kp N7    &kp N8    &kp N9     &kp LBKT  &kp RBKT
-&kp GRAVE  &kp EXCL   &kp AT     &kp HASH   &kp DLLR  &kp PRCNT                        &kp CARET  &kp AMPS  &kp UP    &kp LPAR   &kp RPAR  &kp PIPE
-&trans     &kp EQUAL  &kp MINUS  &soft_off  &kp LBRC  &kp RBRC   &trans      &trans    &kp LBKT   &kp LEFT  &kp DOWN  &kp RIGHT  &kp BSLH  &trans
-                      &trans     &trans     &trans    &trans     &kp BSPC    &kp BSPC  &kp BSPC   &trans    &trans    &trans
+&kp F12    &kp F1     &kp F2     &kp F3     &kp F4    &kp F5                           &kp F6     &kp F7             &kp F8        &kp F9                &kp F10    &kp F11
+&kp N0     &kp N1     &kp N2     &kp N3     &kp N4    &kp N5                           &kp N6     &kp N7             &kp N8        &kp N9                &kp LBKT   &kp RBKT
+&kp GRAVE  &kp EXCL   &kp AT     &kp HASH   &kp DLLR  &kp PRCNT                        &kp CARET  &kp AMPS           &kp STAR      &kp LPAR              &kp RPAR   &kp ENTER
+&none      &kp EQUAL  &kp MINUS  &soft_off  &kp LBRC  &kp RBRC   &none       &none     &kp LBKT   &kp RIGHT_BRACKET  &kp UP_ARROW  &kp NON_US_BACKSLASH  &kp SLASH  &none
+                      &none      &none      &none     &none      &kp BSPC    &kp BSPC  &kp BSPC   &kp LEFT           &kp DOWN      &kp RIGHT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -78,14 +183,26 @@
         BLE_LAYER {
             display-name = "BLE_LAYER";
             bindings = <
-&kp F1      &kp F2        &kp F3        &kp F4        &kp F5        &kp F6                              &kp F7     &kp F8          &kp F9           &kp F10    &kp F11   &kp F12
-&kp N1      &kp N2        &kp N3        &kp N4        &kp N5        &kp N6                              &kp N7     &kp N8          &kp N9           &kp N0     &kp LBKT  &kp RBKT
-&kp GRAVE   &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT                           &kp CARET  &kp AMPS        &kp UP           &kp LPAR   &kp RPAR  &kp PIPE
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans      &trans    &kp LBKT   &kp LEFT        &kp DOWN         &kp RIGHT  &kp BSLH  &trans
-                          &bl BL_ON     &bl BL_OFF    &bl BL_INC    &kp BSPC      &kp BSPC    &kp BSPC  &trans     &rgb_ug RGB_ON  &rgb_ug RGB_OFF  &trans
+&kp F12     &kp F1        &kp F2        &kp F3        &kp F4          &kp F5                                 &kp F6            &kp F7             &kp F8        &kp F9                &kp F10    &kp F11
+&kp N0      &kp N1        &kp N2        &kp N3        &kp N4          &kp N5                                 &kp N6            &kp N7             &kp N8        &kp N9                &kp LBKT   &kp RBKT
+&kp GRAVE   &kp EXCL      &kp AT        &kp HASH      &kp DLLR        &kp PRCNT                              &kp CARET         &kp AMPS           &kp ASTERISK  &kp LPAR              &kp RPAR   &kp RETURN
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &kp LEFT_BRACE  &kp RIGHT_BRACE  &none       &none     &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp UP        &kp NON_US_BACKSLASH  &kp SLASH  &none
+                          &bt BT_SEL 3  &bt BT_SEL 4  &none           &kp BSPC         &kp BSPC    &kp BSPC  &none             &kp LEFT           &kp DOWN      &kp RIGHT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&BT_DEV_CHOICE>;
+        };
+
+        layer_4 {
+            bindings = <
+&none  &ch      &lj          &hc        &xc        &gw                                  &none                    &none  &none  &none  &none  &none
+&none  &none    &none        &none      &none      &none                                &none                    &none  &none  &none  &none  &none
+&none  &chname  &ljname      &hcname    &xcname    &gwname                              &none                    &none  &none  &none  &none  &none
+&none  &bank    &bank900922  &ch168888  &ch168888  &none                &none    &none  &none                    &none  &none  &none  &none  &none
+                &none        &none      &none      &kp LC(PRINTSCREEN)  &none    &none  &kp LC(LS(PRINTSCREEN))  &none  &none  &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp K_REDO K_UNDO>;
         };
     };
 };
